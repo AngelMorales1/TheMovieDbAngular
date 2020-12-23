@@ -1,0 +1,5 @@
+<h3>Resultados de "{{texto}}"</h3>
+
+<div class="row" *ngIf="resultado.length > 0">
+    <app-peliculas-poster-grid [movies]="resultado"></app-peliculas-poster-grid>
+</div>
