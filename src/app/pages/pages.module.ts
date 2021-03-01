@@ -6,6 +6,7 @@ import { PeliculaComponent } from './pelicula/pelicula.component';
 import { ComponentsModule } from '../components/components.module';
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
+import { CategoriaPeliculasComponent } from './categoria-peliculas/categoria-peliculas.component';
 
 
 
@@ -13,7 +14,8 @@ import { PipesModule } from '../pipes/pipes.module';
   declarations: 
   [HomeComponent, 
   BuscarComponent, 
-  PeliculaComponent
+  PeliculaComponent,
+  CategoriaPeliculasComponent
 ],
   imports: [
     CommonModule,

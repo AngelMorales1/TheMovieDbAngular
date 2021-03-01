@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, tap,filter } from 'rxjs/operators';
 
 import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { CreditResponse } from '../interfaces/credit.response';
 import { movieDetails } from '../interfaces/pelicula.response';
+import { Genre,Welcome } from '../interfaces/generos-response';
+
 
 @Injectable({
   providedIn: 'root'
@@ -68,4 +70,37 @@ export class PeliculasService {
     )
   }
 
+  getCategorias(){
+    return this.http.get<Welcome>(`${ this.baseUrl}/genre/movie/list?api_key=${this.params.api_key}&language=es-ES`).pipe(
+      map((resp)=>{
+        let generos:Genre[]= resp.genres
+        return generos
+      })
+    )
+
+  }
+
+  filtrarPeliculasCat( id: number, pagina: number ){
+    this.cargando = true;
+    if (pagina == 200) {
+      this.carteleraPage 
+    }
+    this.carteleraPage = pagina
+  
+    
+    return this.http.get<CarteleraResponse>(`${this.baseUrl}/movie/now_playing?api_key=${this.params.api_key}&language=es-ES&page=${this.carteleraPage}`)
+    .pipe(
+      map( (resp)=>{ 
+        var data = resp.results
+        var movies = data.filter( resps=> resps.genre_ids[0] == id)
+        return movies
+      }),
+      tap( ()=>{
+        this.carteleraPage += 1
+        this.cargando = false;
+      })
+
+    )
+  }
+ 
 }

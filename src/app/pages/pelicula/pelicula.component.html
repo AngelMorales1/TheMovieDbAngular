@@ -1,50 +1,55 @@
-<div class="row mt-3" *ngIf="pelicula">
-    <div class="col-6">
-        <img [src]="pelicula.poster_path|poster" 
-             [alt]="pelicula.title"
-             class="img-thumbnail"
-             >
-    </div>
-
-    <div class="col-6" >
-        <h3>{{ pelicula.title }}</h3>
-       
-        <div class="row">
-            <div class="col">
-                <star-rating 
-                [value]="pelicula.vote_average" 
-                totalstars="10" 
-                checkedcolor="red" 
-                uncheckedcolor="grey" 
-                size="14px" 
-                readonly="false" 
-                ></star-rating>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col text-white">
-                {{ pelicula.vote_average | number:'1.1'}}
-            </div>
-        </div>
-        <div class="row text-white">
-            <div class="col">
-                {{ pelicula.overview }}
-            </div>
-        </div>
-        <div class="row">
-            <div class="col mt-5">
-                <button class="btn btn-light"
-                        (click)="regresar()"
+<div class="container-pelicula animate__animated animate__fadeIn margin-top">
+    <div class="row mt-3" *ngIf="pelicula">
+        <div class="col-md-5 col-sm-12">
+           <div class="img">
+                <img [src]="pelicula.poster_path|poster" 
+                [alt]="pelicula.title"
+                class="img-thumbnail"
                 >
-                    Regresar
-                </button>
+           </div>
+        </div>
+    
+        <div class="col-md-7 col-sm-12" >
+            <h3 class="titulo-pelicula">{{ pelicula.title }}</h3>
+           
+            <div class="row">
+                <div class="col ">
+                    <div class="pelicula-rating">
+                        <star-rating 
+                        [value]="pelicula.vote_average" 
+                        totalstars="10" 
+                        checkedcolor="red" 
+                        uncheckedcolor="grey" 
+                        size="14px" 
+                        readonly="false" 
+                        ></star-rating>
+                       <div class="rating text-white">
+                            {{ pelicula.vote_average | number:'1.1'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="row text-white">
+                <div class="col">
+                    <p class="texto-pelicula "> {{ pelicula.overview }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col my-3">
+                    <button class="btn btn-light"
+                            (click)="regresar()"
+                    >
+                        Regresar
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="row mt-5" *ngIf="cast.length > 0">
-    <div class="col">
-        <app-slide-cast [cast]="cast" ></app-slide-cast>
+    
+    <div class="row mt-5" *ngIf="cast.length > 0">
+        <div class="col">
+            <app-slide-cast [cast]="cast" ></app-slide-cast>
+        </div>
     </div>
 </div>

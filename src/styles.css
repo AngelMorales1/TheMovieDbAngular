@@ -1,4 +1,6 @@
 body {
+    background-image: url("./assets/darl.jpg");
+    background-attachment: fixed;
     background-color: #14161E;
 }
 
@@ -15,14 +17,32 @@ hr{
     color: white;
 }
 
+.navbar{
+    background: #0f0f0fc7;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .navbar-brand {
     font-weight: 200;
     color: #bd4c5f !important;
 }
 
+.navbar-brand img{
+    width: 230px;
+}
+
+.contenedor-items{
+    padding-top: 60px;
+}
+
 .btn-outline-success {
     border-color: #bd4c5f !important;;
     color: #bd4c5f !important;;
+    margin-left: 2px;
 }
 
 .btn-outline-success:hover {

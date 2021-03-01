@@ -1,13 +1,10 @@
-<h1 class="mb-3">Cartelera</h1>
+<app-slider [movies]="moviesSlideshow" ></app-slider>
 
-<div class="row" *ngIf="movies.length > 0 ">
-    <div class="col">
-        <app-slider [movies]="moviesSlideshow" ></app-slider>
+<div class="container">
+  
+    <h1 class="mt-5 mb-5 text-center animate__animated animate__fadeIn ">Ultimas peliculas</h1>
+    <div class="row" *ngIf="movies.length > 0">
+        <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
     </div>
-</div>
 
-<h1 class="mt-5 text-center">Peliculas</h1>
-
-<div class="row" *ngIf="movies.length > 0">
-    <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
 </div>
