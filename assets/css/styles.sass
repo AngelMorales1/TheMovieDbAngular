@@ -1,0 +1,173 @@
+// Slider    
+.slider-responsive
+    height: 560px
+    margin-top: 50px
+    .swiper-container 
+        height: 100% !important
+        width: 100% !important
+
+
+@media screen and ( max-width:1000px )
+    .slider-responsive
+        height: 400px
+
+@media screen and ( max-width:780px )
+    .slider-responsive
+        height: 300px
+
+@media screen and ( max-width:450px )
+    .slider-responsive
+        height: 300px
+        .movie-description
+            height: 100px
+
+@media screen and ( max-width:550px )
+
+    .margin-top
+        margin-top: 100px !important
+
+    .container
+        .container-fluid
+            display: flex
+            flex-direction: column
+            justify-content: center
+            .d-flex
+                margin-top: 7px
+                width: 300px 
+
+
+// Submenu Categorias
+.nav-menus
+    width: 60%
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    .d-flex
+        width: 60%
+    .categorias
+        width: 50%
+        margin: 0
+        font-family:  'Inter', sans-serif
+        font-weight: 400
+        margin-top: 9px
+        li
+            position: absolute
+            color: white
+            list-style: none
+            img
+                width: 20px
+            .submenu-cat
+                display: flex
+                flex-wrap: wrap
+                flex-direction: column 
+                background: #0f0f0fc7
+                width: 500px
+                margin-top: 13px
+                padding: 10px
+                text-align: center
+                border-radius: 5px
+                height: 300px
+                display: none
+                ul
+                    color: white
+                    position: relative
+                    padding: 0
+                    list-style: none
+                    text-align: center
+                ul:hover
+                    color: #01b4e4
+        li:hover 
+            cursor: pointer
+            color: #01b4e4
+            .submenu-cat
+                display: flex
+// media de mavbar                
+
+@media screen and ( max-width: 770px )
+
+    .margin-top
+        margin-top: 100px
+
+    .nav-container
+        display: flex
+        justify-content: center
+        flex-direction: column
+        width: 100%
+        .nav-menus
+            display: flex
+            flex-direction: column
+            width: 100%
+            .d-flex
+                width: 100%
+            .categorias
+                height: 50px
+                display: flex
+                li
+                    list-style: none
+                    justify-content: center
+                    .submenu-cat
+                        width: 300%
+                        height: 300px
+
+@media screen and ( max-width: 450px )
+
+    .nav-container
+        .nav-menus
+            .d-flex
+            .categorias
+                li
+                    .submenu-cat
+                        width: 200%
+                        height: 500px
+
+
+                
+
+                
+                
+        
+
+// Pelicula page y mediaqueries
+.img
+    display: flex
+    justify-content: center
+    width: 100%
+    img
+        width: 400px
+
+.pelicula-rating
+    display: flex
+    flex-direction: row
+    star-rating
+        width: 150px
+    .rating
+        width: 10px
+
+.texto-pelicula
+    margin-top: 30px   
+
+@media screen and ( max-width: 1000px )
+    .swiper-container.-cast
+        .actores-slider
+            img 
+                height: 150px !important
+
+
+@media screen and ( max-width: 770px )
+    .img
+        margin-bottom: 20px
+    .swiper-container.-cast
+        .actores-slider
+            img 
+                height: 118px !important
+
+@media screen and ( max-width:550px  )
+    .peliculas-busqueda
+        margin-top: 70px
+        padding: 10px
+    .container-pelicula
+        margin-top: 70px
+    
+    .swiper-container.-cast  
+        display: none
+
