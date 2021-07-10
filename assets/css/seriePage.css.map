@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AACI,aADS,CACT,CAAC,CAAC;EACE,KAAK,EAAE,KAAK;EACZ,WAAW,EAAE,mCAAmC;CAAG",
+    "sources": [
+        "seriePage.sass"
+    ],
+    "names": [],
+    "file": "seriePage.css"
+}

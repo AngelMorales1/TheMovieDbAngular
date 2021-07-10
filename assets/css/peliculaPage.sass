@@ -1,0 +1,153 @@
+// Pelicula page y mediaqueries
+.contenedor
+    max-width: 1200px
+.contenedor2
+    max-width: 1300px
+    margin-top: 30px
+    padding: 50px
+    background: #f4f4f4
+
+.contenedorMovie
+    padding-top: 60px
+    .pelicula
+        -webkit-box-shadow: inset 2px 0px 0px 200px #4d4d4da6
+        -moz-box-shadow: inset 2px 0px 0px 200px #4d4d4da6
+        box-shadow: inset 2px 0px 0px 300px #4d4d4da6
+        background-position: center
+        background-size: 100%
+        background-repeat: no-repeat
+        padding: 40px
+        font-family: 'Barlow Semi Condensed', sans-serif
+        .img
+            display: flex
+            justify-content: center
+            width: 100%
+            img
+                width: 300px
+                border-radius: 3px
+        .description
+            display: flex
+            flex-direction: column
+            height: 100% !important
+            padding: 40px 0
+            .pelicula-rating
+                display: flex
+                flex-direction: row
+                star-rating
+                    width: 150px
+                .rating
+                    width: 10px
+            .back
+                margin-top: 45px
+                .btn
+                    border: 1px solid white
+                    border-radius: 15px
+                    color: white
+                    padding: 7px 14px
+                    &:hover
+                        background: white
+                        color: black
+            .texto-pelicula
+                margin-top: 30px
+                max-width: 800px
+    .sliderCast
+        margin: auto
+        width: 100%
+        font-family: 'Barlow Semi Condensed', sans-serif
+        color: black
+        h3
+            margin-bottom: 20px
+            color: black
+    .prodDiv
+        margin-top: 35px
+        font-family: 'Barlow Semi Condensed', sans-serif
+        display: flex
+        flex-wrap: wrap
+        width: 100%
+        justify-content: center
+        h4
+            margin-bottom: 20px
+            color: black
+        .companies
+            width: 100%
+            display: flex
+            flex-wrap: wrap
+            flex-direction: row
+            justify-content: center
+            color: black
+            .productora
+                width: 70px
+                text-align: center
+                color: white
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                margin: 25px
+                p
+                    color: black
+                    font-size: 14px
+                    height: 10%
+                .img
+                    display: flex
+                    height: 90%
+                    align-items: center
+                    img
+                        width: 100%
+                        align-self: center
+                        border-radius: 5px
+    .info
+        width: 100%
+        font-family: 'Barlow Semi Condensed', sans-serif
+        margin-top: 35px
+        display: flex
+        flex-direction: column
+        justify-content: center
+        h4
+            color: black
+            text-align: center
+            margin-bottom: 30px
+        .lista
+            list-style: none
+            margin: auto
+            margin-top: 10px
+            padding-left: 2px
+            line-height: 40px
+            a 
+                color: #01b4e4
+                height: 25px
+            a:hover
+                cursor: pointer
+                text-decoration: none
+                color: #777777
+    .slider
+        margin-top: 57px
+        width: 100%
+        overflow: hidden
+        text-align: center
+        h4
+            font-family: 'Barlow Semi Condensed', sans-serif
+            color: #000
+            margin-bottom: 20px
+        
+@media screen and ( max-width: 1000px )
+    .swiper-container.-cast
+        .actores-slider
+            img 
+                height: 150px !important
+
+
+@media screen and ( max-width: 770px )
+    .img
+        margin-bottom: 20px
+    .swiper-container.-cast
+        .actores-slider
+            img 
+                height: 118px !important
+
+@media screen and ( max-width:550px  )
+    .peliculas-busqueda
+        margin-top: 70px
+        padding: 10px
+    .container-pelicula
+        margin-top: 70px
+
