@@ -12,7 +12,7 @@ export class PeliculasPosterGridComponent implements OnInit {
   
   @Input() movies : Movie[];
   
-  constructor(private peliculasService : PeliculasService,
+  constructor(
               private router : Router
     ) { }
 

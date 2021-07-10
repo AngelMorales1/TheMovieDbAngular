@@ -1,7 +1,5 @@
 body {
-    background-image: url("./assets/darl.jpg");
-    background-attachment: fixed;
-    background-color: #14161E;
+    background-color: #010e01;
 }
 
 h1,h2,h3,h4,h5 {
@@ -26,10 +24,6 @@ hr{
     justify-content: space-between;
 }
 
-.navbar-brand {
-    font-weight: 200;
-    color: #bd4c5f !important;
-}
 
 .navbar-brand img{
     width: 230px;
@@ -40,8 +34,8 @@ hr{
 }
 
 .btn-outline-success {
-    border-color: #bd4c5f !important;;
-    color: #bd4c5f !important;;
+    border-color: #bf1363 !important;;
+    color: #bf1363 !important;;
     margin-left: 2px;
 }
 

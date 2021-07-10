@@ -14,7 +14,7 @@ export class CategoriaPeliculasComponent implements OnInit, OnDestroy {
   
   
   public movies : Movie[]=[]
-  private tempMovies: Movie[]=[]
+  public categoria: string 
   servicio: Subscription
 
   @HostListener('window:scroll',['$event'])
@@ -43,11 +43,12 @@ export class CategoriaPeliculasComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.getPelicula()
+    this.categoria = localStorage.getItem('categoria')
   }
   
   getPelicula(){
     this.servicio =  this.activatedRoute.params.subscribe(ids=>{
-      for (let index = 1; index <= 12; index++) {
+      for (let index = 1; index <= 122; index++) {
         this.peliculasService.filtrarPeliculasCat(ids.id,index).subscribe(resps=>{
           this.movies.push(...resps) 
         })

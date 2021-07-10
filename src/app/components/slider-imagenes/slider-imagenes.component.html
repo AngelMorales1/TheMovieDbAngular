@@ -1,0 +1,10 @@
+<div class="swiper-container3 -cast ">
+    <div class="swiper-wrapper">
+        <div *ngFor="let imagen of imagenes"
+                class="swiper-slide slideImagenes">
+            <img [src]="imagen.file_path | poster" 
+                [alt]="imagen.iso_639_1"
+                height="250px">
+        </div>
+    </div>
+</div>

@@ -18,9 +18,21 @@ export class SlideCastComponent implements OnInit {
 
   ngAfterViewInit() {
     var swiper = new Swiper('.swiper-container',{
-      slidesPerView: 6.3,
+      slidesPerView: 2.2,
       freeMode: true,
-      spaceBetween: 15,
+      breakpoints: {
+        // when window width is <= 499px
+        1300: {
+            slidesPerView: 8
+        },
+        // when window width is <= 999px
+        580: {
+            slidesPerView: 6
+        },
+        370: {
+          slidesPerView: 3
+        }
+      }
     })
   }
 }

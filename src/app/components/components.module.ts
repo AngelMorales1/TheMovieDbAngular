@@ -7,6 +7,11 @@ import { PeliculasPosterGridComponent } from './peliculas-poster-grid/peliculas-
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
 import { SlideCastComponent } from './slide-cast/slide-cast.component';
+import { SliderSeriesComponent } from './slider-series/slider-series.component';
+import { SliderImagenesComponent } from './slider-imagenes/slider-imagenes.component';
+import { SliderTemporadasComponent } from './slider-temporadas/slider-temporadas.component';
+import { SliderSeriesHomeComponent } from './slider-series-home/slider-series-home.component';
+import { SeriesPostedGridComponent } from './series-posted-grid/series-posted-grid.component';
 
 @NgModule({
   declarations: [
@@ -14,12 +19,22 @@ import { SlideCastComponent } from './slide-cast/slide-cast.component';
     SliderComponent,
     PeliculasPosterGridComponent,
     SlideCastComponent,
+    SliderSeriesComponent,
+    SliderImagenesComponent,
+    SliderTemporadasComponent,
+    SliderSeriesHomeComponent,
+    SeriesPostedGridComponent,
   ],
   exports: [
     NavbarComponent,
     SliderComponent,
     PeliculasPosterGridComponent,
-    SlideCastComponent
+    SlideCastComponent,
+    SliderSeriesComponent,
+    SliderImagenesComponent,
+    SliderTemporadasComponent,
+    SliderSeriesHomeComponent,
+    SeriesPostedGridComponent
   ],
   imports: [
     CommonModule,

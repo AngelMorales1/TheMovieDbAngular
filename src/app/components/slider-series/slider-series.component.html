@@ -1,0 +1,21 @@
+
+<div class="swiper-container2 -cast ">
+    <div class="swiper-wrapper">
+        <div *ngFor="let serie of series.results"
+                class="swiper-slide slideSeries"
+                (click)="verSerie(serie)">
+
+            <img [src]="serie.poster_path | poster" 
+                
+                [alt]="serie.original_name"
+                height="250px"
+                style=" border-radius: 5px ;
+                        border-style: solid;
+                        border-color: white;
+                        border-width: 0px;
+                        margin: 0;
+                        cursor: pointer;">
+            <p>{{ serie.original_name }}</p>
+        </div>
+    </div>
+</div>

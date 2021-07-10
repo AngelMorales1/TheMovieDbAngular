@@ -1,5 +1,9 @@
 <div class="container animate__animated animate__fadeIn ">
    <div class="row mt-4">
-     <app-peliculas-poster-grid *ngIf="movies" [movies]="movies" ></app-peliculas-poster-grid>
+     <div class="col-8 categoria">
+       <h2>Peliculas de:  {{categoria}}</h2>
+      <app-peliculas-poster-grid *ngIf="movies" [movies]="movies" ></app-peliculas-poster-grid>
+     </div>
+
    </div> 
 </div>

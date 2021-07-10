@@ -7,6 +7,9 @@ import { ComponentsModule } from '../components/components.module';
 import { RatingModule } from 'ng-starrating';
 import { PipesModule } from '../pipes/pipes.module';
 import { CategoriaPeliculasComponent } from './categoria-peliculas/categoria-peliculas.component';
+import { SerieComponent } from './serie/serie.component';
+import { SeriesHomeComponent } from './series-home/series-home.component';
+import { CategoriaSerieComponent } from './categoria-serie/categoria-serie.component';
 
 
 
@@ -15,7 +18,10 @@ import { CategoriaPeliculasComponent } from './categoria-peliculas/categoria-pel
   [HomeComponent, 
   BuscarComponent, 
   PeliculaComponent,
-  CategoriaPeliculasComponent
+  CategoriaPeliculasComponent,
+  SerieComponent,
+  SeriesHomeComponent,
+  CategoriaSerieComponent
 ],
   imports: [
     CommonModule,

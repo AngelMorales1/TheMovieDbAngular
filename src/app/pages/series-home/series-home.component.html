@@ -1,0 +1,38 @@
+<div *ngIf="sliderSeries">
+    <app-slider-series-home [series]="sliderSeries" ></app-slider-series-home>
+</div>
+    
+<div class="container" *ngIf="series">
+    <div class="row" >
+        <div class="col-xl-9">
+            <div class="textos">
+                <h1 class="mt-5 mb-5 text-center animate__animated animate__fadeIn "> Series </h1>
+                <div class="seccion-peli">
+                    <button class="mt-5 mb-5 text-center animate__animated animate__fadeIn hover" [ngClass]="{active :border==1}" (click)="active(1)">Ultimas Series</button>
+                    <button class="mt-5 mb-5 text-center animate__animated animate__fadeIn hover" [ngClass]="{active :border==2}" (click)="active(2)">Mas Populares</button>
+                    <button class="mt-5 mb-5 text-center animate__animated animate__fadeIn hover" [ngClass]="{active :border==3}" (click)="active(3)">Mejor Puntuadas</button>
+                </div>
+            </div>
+            <app-series-posted-grid [series]="posterSeries" ></app-series-posted-grid>
+        </div>
+        <div class="col-xl-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="categoria">
+                            <div class="titulo">
+                                <h3> Categorias </h3>
+                            </div>
+                            <div class="categorias-lista">
+                                <div class="cat" *ngFor="let cat of categorias"><a (click)="categoria(cat.id,cat.name)">{{cat.name}}</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+
+    
+
+</div>

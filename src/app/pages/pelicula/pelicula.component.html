@@ -1,55 +1,91 @@
-<div class="container-pelicula animate__animated animate__fadeIn margin-top">
-    <div class="row mt-3" *ngIf="pelicula">
-        <div class="col-md-5 col-sm-12">
-           <div class="img">
-                <img [src]="pelicula.poster_path|poster" 
-                [alt]="pelicula.title"
-                class="img-thumbnail"
-                >
-           </div>
-        </div>
-    
-        <div class="col-md-7 col-sm-12" >
-            <h3 class="titulo-pelicula">{{ pelicula.title }}</h3>
-           
+<div class="contenedorMovie" *ngIf="pelicula">
+    <div class="pelicula" *ngIf="pelicula" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original'+pelicula.backdrop_path+')'}">
+         <div class="container contenedor">
             <div class="row">
-                <div class="col ">
-                    <div class="pelicula-rating">
-                        <star-rating 
-                        [value]="pelicula.vote_average" 
-                        totalstars="10" 
-                        checkedcolor="red" 
-                        uncheckedcolor="grey" 
-                        size="14px" 
-                        readonly="false" 
-                        ></star-rating>
-                       <div class="rating text-white">
-                            {{ pelicula.vote_average | number:'1.1'}}
+                <div class="col-md-4 col-sm-12">
+                   <div class="img">
+                        <img [src]="pelicula.poster_path|poster" 
+                        [alt]="pelicula.title"
+                        >
+                   </div>
+                </div>
+            
+                <div class="col-md-8 col-sm-12 " >
+                    <div class="description">
+                        <h3 class="titulo-pelicula">{{ pelicula.title }}</h3>
+                        <div class="pelicula-rating">
+                            <star-rating 
+                            [value]="pelicula.vote_average" 
+                            totalstars="10" 
+                            checkedcolor="red" 
+                            uncheckedcolor="grey" 
+                            size="14px" 
+                            readonly="false" 
+                            ></star-rating>
+                        <div class="rating text-white">
+                                {{ pelicula.vote_average | number:'1.1'}}
+                            </div>
+                        </div>
+                        <div class="texto-pelicula ">
+                            <p *ngIf="pelicula.tagline.length>0">"{{pelicula.tagline}}"</p>
+                            <p> {{ pelicula.overview }}</p>
+                        </div>
+                        <div class="back">
+                            <button class="btn"
+                                    (click)="regresar()">
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+         </div>
+    </div>
+
+    <div class="container contenedor2 animate__animated animate__fadeIn">
+        <div class="row mb-4" *ngIf="cast.length > 0">
+            <div class="col-12">
+                <div class="sliderCast">
+                    <h3>Reparto</h3>
+                    <app-slide-cast [cast]="cast" ></app-slide-cast>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-sm-5 col-12">
+                <div class="info">
+                    <h4>Informacion general</h4>
+                    <ul class="lista">
+                        <li>Fecha de lanzamiento: {{pelicula.release_date}}</li>
+                        <li>Presupuesto: ${{pelicula.budget}}</li>
+                        <li>Recaudacion: ${{pelicula.revenue}}</li>
+                        <li *ngIf="pelicula.homepage.length >0">Sitio Oficial: <a [href]="pelicula.homepage" target="_blank" >Click Aqui</a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-7 col-12">
+                <div class="prodDiv">
+                    <h4>Compañias productoras</h4>
+                    <div class="companies">
+                        <div class="productora" *ngFor="let productora of pelicula.production_companies">
+                            <div class="img">
+                                <img [src]="productora.logo_path|poster" alt="">
+                            </div>
+                            <p>{{productora.name}}</p>
                         </div>
                     </div>
                 </div>
             </div>
-    
-            <div class="row text-white">
-                <div class="col">
-                    <p class="texto-pelicula "> {{ pelicula.overview }}</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col my-3">
-                    <button class="btn btn-light"
-                            (click)="regresar()"
-                    >
-                        Regresar
-                    </button>
-                </div>
-            </div>
         </div>
-    </div>
-    
-    <div class="row mt-5" *ngIf="cast.length > 0">
-        <div class="col">
-            <app-slide-cast [cast]="cast" ></app-slide-cast>
+
+        <div class="row mt-5 mb-3">
+            <div class="col-12">
+                <div class="slider" >
+                    <h4 class="mb-4"> Imagenes </h4>
+                    <app-slider-imagenes [imagenes]="imagenes.backdrops"></app-slider-imagenes>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,0 +1,12 @@
+<div class="swiper-container2" >
+    <div class="swiper-wrapper">
+        <div class="swiper-slide " *ngFor="let season of seasons">
+            <img [src]="season.poster_path| poster" 
+                [alt]="season.original_name"
+                height="250px"
+                style=" margin: 0;">
+            <p>{{ season.name }}</p>
+            
+        </div>
+    </div>
+</div>

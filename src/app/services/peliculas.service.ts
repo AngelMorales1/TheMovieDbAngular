@@ -7,6 +7,8 @@ import { CarteleraResponse, Movie } from '../interfaces/cartelera-response';
 import { CreditResponse } from '../interfaces/credit.response';
 import { movieDetails } from '../interfaces/pelicula.response';
 import { Genre,Welcome } from '../interfaces/generos-response';
+import { popularResponse } from '../interfaces/popular-response';
+import { TopRatedResponse } from '../interfaces/top-rated-response';
 
 
 @Injectable({
@@ -28,17 +30,43 @@ export class PeliculasService {
     }
   }
 
-  getPeliculas():Observable <CarteleraResponse>{
+  getPeliculas(x:Number):Observable <CarteleraResponse|popularResponse>{
     this.cargando = true;
 
-    return this.http.get<CarteleraResponse>(`${this.baseUrl}/movie/now_playing?api_key=${this.params.api_key}&language=es-ES&page=${this.params.page}`)
-    .pipe(
-      tap( ()=>{
-        this.carteleraPage += 1
-        this.cargando = false;
+    switch (x) {
+      case 1:
+        return this.http.get<CarteleraResponse>(`${this.baseUrl}/movie/now_playing?api_key=${this.params.api_key}&language=es-ES&page=${this.params.page}`)
+          .pipe(
+            tap( ()=>{
+              this.carteleraPage += 1
+              this.cargando = false;
+      
+            })
+          )
+        break;
+      case 2:
+            return this.http.get<popularResponse>( `${this.baseUrl}/movie/popular?api_key=${this.params.api_key}&language=es-ES&page=${this.params.page}`)
+            .pipe(
+              tap( ()=>{
+                this.carteleraPage += 1
+                this.cargando = false;
+        
+              })
+            )
+        break;
+        case 3: 
+          return this.http.get<TopRatedResponse>( `${this.baseUrl}/movie/top_rated?api_key=${this.params.api_key}&language=es-ES&page=${this.params.page}`)
+          .pipe(
+            tap( ()=>{
+              this.carteleraPage += 1
+              this.cargando = false;
+      
+            })
+          )
+      break;
+    }
 
-      })
-    )
+    
   }
 
   buscarPeliculas(texto : string):Observable <Movie[]> {
@@ -54,6 +82,10 @@ export class PeliculasService {
     return this.http.get<movieDetails>(`${ this.baseUrl}/movie/${id}?api_key=${this.params.api_key}&language=es-ES`).pipe(
       catchError(err => of(null))
     )
+  }
+
+  getPeliculaImagenes(id:string){
+    return this.http.get<any>(`${this.baseUrl}/movie/`+id+`/images?api_key=${this.params.api_key}`)
   }
 
   resetPage(){

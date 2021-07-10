@@ -1,10 +1,43 @@
-<app-slider [movies]="moviesSlideshow" ></app-slider>
+<app-slider [movies]="moviesSlideshow" ></app-slider> 
 
 <div class="container">
-  
-    <h1 class="mt-5 mb-5 text-center animate__animated animate__fadeIn ">Ultimas peliculas</h1>
     <div class="row" *ngIf="movies.length > 0">
-        <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
+        <div class="col-xl-9">
+            <div class="textos">
+                <h1 class="mt-5 mb-4 text-center animate__animated animate__fadeIn"> Series </h1>
+                <div class="seccion-peli">
+                    <button (click)="HomeSerie()" class="verSeries hover" [ngClass]="{active :border}"> Mas Series</button>
+                </div>
+            </div>
+            <div class="seriesSlider">
+                <app-slider-series [series]="series"></app-slider-series>
+            </div>
+            <div class="textos">
+                <h1 class="mt-5 text-center animate__animated animate__fadeIn "> Peliculas </h1>
+                <div class="seccion-peli">
+                    <button class="mt-5 mb-5 text-center animate__animated animate__fadeIn hover" [ngClass]="{active :border==1}" (click)="active(1)">En Cartelera</button>
+                    <button class="mt-5 mb-5 text-center animate__animated animate__fadeIn hover" [ngClass]="{active :border==2}" (click)="active(2)">Mas Populares</button>
+                    <button class="mt-5 mb-5 text-center animate__animated animate__fadeIn hover" [ngClass]="{active :border==3}" (click)="active(3)">Mejor Puntuadas</button>
+                </div>
+            </div>
+            <app-peliculas-poster-grid [movies]="movies"></app-peliculas-poster-grid>
+        </div>
+        <div class="col-xl-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="categoria">
+                            <div class="titulo">
+                                <h3> Categorias </h3>
+                            </div>
+                            <div class="categorias-lista">
+                                <div class="cat" *ngFor="let cat of categorias"><a (click)="categoria(cat.id,cat.name)">{{cat.name}}</a> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
 
 </div>

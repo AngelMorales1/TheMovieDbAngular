@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Genre } from 'src/app/interfaces/generos-response';
-import { PeliculasService } from 'src/app/services/peliculas.service';
 
 
 @Component({
@@ -11,20 +9,16 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public categorias: Genre[]=[]
+
 
   constructor(private router : Router,
-              private peliculaService: PeliculasService
     ) { }
 
   ngOnInit(): void {
-    this.getCategorias()
   }
 
-  getCategorias(){
-    this.peliculaService.getCategorias().subscribe(resp=>{
-      this.categorias = resp
-    })
+  back(){
+    this.router.navigate([ '/home'])
   }
 
   buscar( buscarTxt: string ){
@@ -34,10 +28,6 @@ export class NavbarComponent implements OnInit {
       return ;
     }
     this.router.navigate([ '/buscar', buscarTxt])
-  }
-
-  verCategoria(){
-    
   }
 
 }

@@ -1,0 +1,95 @@
+<div class="contenedorMovie" *ngIf="serie">
+    <div class="pelicula" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original'+serie.backdrop_path+')'}">
+         <div class="container contenedor">
+            <div class="row">
+                <div class="col-md-4 col-sm-12">
+                   <div class="img">
+                        <img [src]="serie.poster_path|poster" 
+                        [alt]="serie.name"
+                        >
+                   </div>
+                </div>
+            
+                <div class="col-md-8 col-sm-12 " >
+                    <div class="description">
+                        <h3 class="titulo-pelicula">{{ serie.name }}</h3>
+                        <div class="pelicula-rating">
+                            <star-rating 
+                            [value]="serie.vote_average" 
+                            totalstars="10" 
+                            checkedcolor="red" 
+                            uncheckedcolor="grey" 
+                            size="14px" 
+                            readonly="false" 
+                            ></star-rating>
+                        <div class="rating text-white">
+                                {{ serie.vote_average | number:'1.1'}}
+                            </div>
+                        </div>
+                        <div class="texto-pelicula ">
+                            <p *ngIf="serie.tagline.length > 0">"{{serie.tagline}}"</p>
+                            <p> {{ serie.overview }}</p>
+                        </div>
+                        <div class="back">
+                            <button class="btn"
+                                    (click)="regresar()">
+                                Regresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+         </div>
+    </div>
+
+    <div class="container contenedor2 animate__animated animate__fadeIn">
+        <div class="row" *ngIf="cast">
+            <div class="col-12">
+                <div class="sliderCast">
+                    <h3>Reparto</h3>
+                    <app-slide-cast [cast]="cast" ></app-slide-cast>
+                </div>
+            </div>
+        </div> 
+    
+        <div class="row">
+            <div class="col-sm-5 col-12">
+                <div class="info">
+                    <h4>Informacion general</h4>
+                    <ul class="lista">
+                        <li>Fecha de estreno: {{serie.first_air_date}}</li>
+                        <li>Ultimo episodio emitido: {{serie.last_air_date}}</li>
+                        <li>Episodios: {{serie.number_of_episodes}}</li>
+                        <li>Temporadas: {{serie.number_of_seasons}}</li>
+                        <li >Sitio Oficial: <a [href]="serie.homepage" target="_blank" >Click Aqui</a> </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-7 col-12">
+                <div class="prodDiv">
+                    <h4>Compañias productoras</h4>
+                    <div class="companies">
+                        <div class="productora" *ngFor="let productora of serie.production_companies">
+                            <div class="img">
+                                <img [src]="productora.logo_path|poster" alt="">
+                            </div>
+                            <p>{{productora.name}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+        </div>
+
+       <div class="row">
+            <div class="col-12">
+                <div class="slider">
+                    <h4 class="m-5"> Temporadas </h4>
+                    <app-slider-temporadas [seasons]="seasons" ></app-slider-temporadas>
+                </div>
+            </div>
+        </div>
+     
+    </div>
+</div>

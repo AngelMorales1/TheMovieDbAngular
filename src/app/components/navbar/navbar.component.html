@@ -1,25 +1,18 @@
 <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
       <div class="container nav-container">
-        <a class="navbar-brand" routerLink="/home"><img src="../../../assets/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg" alt=""></a>
+        <a class="navbar-brand" (click)="back()"><img src="assets/blue_long_1-8ba2ac31f354005783fab473602c34c3f4fd207150182061e425d366e4f34596.svg" alt=""></a>
 
         <div class="nav-menus">
-          <div class="categorias">
-            <li><a> Categorias <img src="../../../assets/descarga.png" alt=""> </a>
-                <div class="submenu-cat">
-                  <ul *ngFor="let cat of categorias"><a routerLink="/categoria/{{cat.id}}">{{cat.name}}</a></ul>
-                </div>
-            </li>
-          </div>
   
           <div class="d-flex">
-              <input class="form-control me-2"
+              <input class="input-text"
                     #buscarTxt
                     (keyup.enter)="buscar(buscarTxt.value)"
                     type="search" 
-                    placeholder="Search" 
+                    placeholder="Buscar pelicula" 
                     aria-label="Search">
-              <button class="btn btn-outline-success" (click)="buscar(buscarTxt.value)" type="submit">Search</button>
+              <button class="btn btn-outline-success boton" (click)="buscar(buscarTxt.value)" type="submit"><i class="fas fa-search"></i></button>
           </div>
         </div>
       </div>
